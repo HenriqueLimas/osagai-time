@@ -1,6 +1,6 @@
 {
   "name": "osagai-time",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/osagai-time.js",
   "umd:main": "dist/osagai-time.umd.js",
