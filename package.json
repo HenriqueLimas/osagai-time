@@ -1,7 +1,8 @@
 {
   "name": "osagai-time",
   "version": "0.1.0",
-  "description": "",
+  "description": "Osagai elements for formatting the timestamp",
+  "repository": "github:HenriqueLimas/osagai-time",
   "main": "dist/osagai-time.js",
   "umd:main": "dist/osagai-time.umd.js",
   "module": "dist/osagai-time.mjs",
@@ -12,8 +13,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Henrique Limas <henrique.ramos.limas@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "microbundle": "^0.9.0"
   },
