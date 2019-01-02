@@ -1,8 +1,22 @@
 import { define } from "osagai";
+import { onAttributeChanged } from "osagai/lifecycles";
 import { useTime, observedAttributes } from "./useTime";
 import { strftime, makeFormatter, isDayFirst } from "./utils";
 
+const formatters = new WeakMap();
+
 function LocalTime({ element }) {
+  onAttributeChanged(element, function({ name }) {
+    if (
+      name === "hour" ||
+      name === "minute" ||
+      name === "second" ||
+      name === "time-zone-name"
+    ) {
+      formatters.delete(element);
+    }
+  });
+
   useTime(element, getFormattedDate);
 
   function getFormattedDate(date) {
@@ -71,7 +85,13 @@ function formatTime(element, date) {
     return "";
   }
 
-  const formatter = makeFormatter(options)();
+  let factory = formatters.get(element);
+  if (!factory) {
+    factory = makeFormatter(options);
+    formatters.set(element, factory);
+  }
+
+  const formatter = factory();
   if (formatter) {
     return formatter.format(date);
   } else {
