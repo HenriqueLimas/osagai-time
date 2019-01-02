@@ -1,0 +1,23 @@
+{
+  "name": "osagai-time",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/osagai-time.js",
+  "umd:main": "dist/osagai-time.umd.js",
+  "module": "dist/osagai-time.mjs",
+  "source": "src/index.js",
+  "scripts": {
+    "build": "microbundle --external none",
+    "dev": "microbundle watch --external none ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "npm run build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "microbundle": "^0.9.0"
+  },
+  "dependencies": {
+    "osagai": "^0.2.0"
+  }
+}
