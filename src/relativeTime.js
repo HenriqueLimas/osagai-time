@@ -65,6 +65,32 @@ export function timeAgoFromMs(ms) {
   }
 }
 
+export function timeAgo(date) {
+  const ms = new Date().getTime() - date.getTime();
+  return timeAgoFromMs(ms);
+}
+
+export function microTimeAgo(date) {
+  const ms = new Date().getTime() - date.getTime();
+  const sec = Math.round(ms / 1000);
+  const min = Math.round(sec / 60);
+  const hr = Math.round(min / 60);
+  const day = Math.round(hr / 24);
+  const month = Math.round(day / 30);
+  const year = Math.round(month / 12);
+  if (min < 1) {
+    return "1m";
+  } else if (min < 60) {
+    return `${min}m`;
+  } else if (hr < 24) {
+    return `${hr}h`;
+  } else if (day < 365) {
+    return `${day}d`;
+  } else {
+    return `${year}y`;
+  }
+}
+
 export function timeUntil(date) {
   const ms = date.getTime() - new Date().getTime();
   return timeUntilFromMs(ms);
