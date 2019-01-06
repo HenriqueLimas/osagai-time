@@ -1,9 +1,11 @@
 import { define } from "osagai";
 import { useTime, observedAttributes } from "../useTime";
 import { timeAgo, microTimeAgo } from "../relativeTime";
+import { scheduleFormatter } from "../scheduleFormatter";
 
 function TimeAgo({ element }) {
   useTime(element, getFormattedDate);
+  scheduleFormatter(element, getFormattedDate);
 
   function getFormattedDate(date) {
     if (date) {

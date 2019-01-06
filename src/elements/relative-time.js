@@ -6,11 +6,11 @@ import { scheduleFormatter } from "../scheduleFormatter";
 function RelativeTime({ element }) {
   useTime(element, getFormattedDate);
   scheduleFormatter(element, getFormattedDate);
-}
 
-function getFormattedDate(date) {
-  if (date) {
-    return toString(date);
+  function getFormattedDate(date) {
+    if (date) {
+      return toString(date);
+    }
   }
 }
 

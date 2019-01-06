@@ -1,9 +1,11 @@
 import { define } from "osagai";
 import { useTime, observedAttributes } from "../useTime";
 import { timeUntil, microTimeUntil } from "../relativeTime";
+import { scheduleFormatter } from "../scheduleFormatter";
 
 function TimeUntil({ element }) {
   useTime(element, getFormattedDate);
+  scheduleFormatter(element, getFormattedDate);
 
   function getFormattedDate(date) {
     if (date) {
