@@ -105,6 +105,27 @@ export function timeUntilFromMs(ms) {
   }
 }
 
+export function microTimeUntil(date) {
+  const ms = date.getTime() - new Date().getTime();
+  const sec = Math.round(ms / 1000);
+  const min = Math.round(sec / 60);
+  const hr = Math.round(min / 60);
+  const day = Math.round(hr / 24);
+  const month = Math.round(day / 30);
+  const year = Math.round(month / 12);
+  if (day >= 365) {
+    return `${year}y`;
+  } else if (hr >= 24) {
+    return `${day}d`;
+  } else if (min >= 60) {
+    return `${hr}h`;
+  } else if (min > 1) {
+    return `${min}m`;
+  } else {
+    return "1m";
+  }
+}
+
 export function formatDate(date) {
   let format = isDayFirst() ? "%e %b" : "%b %e";
   if (!isThisYear(date)) {

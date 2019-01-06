@@ -42,6 +42,4 @@ function updateNowElements() {
   });
 }
 
-define("relative-time", RelativeTime, {
-  observedAttributes
-});
+define("relative-time", RelativeTime, { observedAttributes });
