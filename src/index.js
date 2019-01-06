@@ -1,1 +1,2 @@
-import "./local-time";
+import "./elements/local-time";
+import "./elements/relative-time";

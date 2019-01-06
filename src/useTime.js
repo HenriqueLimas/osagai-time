@@ -15,6 +15,10 @@ export const observedAttributes = [
 ];
 
 export function useTime(element, getFormattedDate) {
+  element.getDate = function getDate() {
+    return element.__date;
+  };
+
   onAttributeChanged(element, function handleAttributeChange({
     name,
     current
@@ -35,6 +39,8 @@ export function useTime(element, getFormattedDate) {
     if (text) {
       element.textContent = text;
     }
+
+    element.__date = date;
   });
 }
 

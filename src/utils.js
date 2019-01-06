@@ -131,3 +131,30 @@ export function isDayFirst() {
     return false;
   }
 }
+
+export function isThisYear(date) {
+  const now = new Date();
+  return now.getUTCFullYear() === date.getUTCFullYear();
+}
+
+let yearSeparator = null;
+const yearFormatter = makeFormatter({
+  day: "numeric",
+  month: "short",
+  year: "numeric"
+});
+
+export function isYearSeparator() {
+  if (yearSeparator !== null) {
+    return yearSeparator;
+  }
+
+  const formatter = yearFormatter();
+  if (formatter) {
+    const output = formatter.format(new Date(0));
+    yearSeparator = !!output.match(/\d,/);
+    return yearSeparator;
+  } else {
+    return true;
+  }
+}

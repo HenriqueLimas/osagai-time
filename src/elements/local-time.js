@@ -1,7 +1,7 @@
 import { define } from "osagai";
 import { onAttributeChanged } from "osagai/lifecycles";
-import { useTime, observedAttributes } from "./useTime";
-import { strftime, makeFormatter, isDayFirst } from "./utils";
+import { useTime, observedAttributes } from "../useTime";
+import { strftime, makeFormatter, isDayFirst } from "../utils";
 
 const formatters = new WeakMap();
 
