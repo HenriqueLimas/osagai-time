@@ -1,6 +1,6 @@
 {
   "name": "osagai-time",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Osagai elements for formatting the timestamp",
   "repository": "github:HenriqueLimas/osagai-time",
   "main": "dist/osagai-time.js",
